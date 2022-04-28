@@ -22,3 +22,6 @@ On the top left corner of the text editor, click the 'Install!' button.
 
  Copyright (c) 2022 Vidalatan Licensed under the The Unlicense license.
 
+
+
+[Go to Live Editor!](https://jate-a-text-editor.herokuapp.com/)
