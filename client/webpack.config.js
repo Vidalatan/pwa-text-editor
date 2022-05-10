@@ -18,54 +18,53 @@ module.exports = () => {
     plugins: [
 
       new HtmlWebpackPlugin({
-        template: './index.html',
-        title: 'J.A.T.E'
+        template: "./index.html",
+        title: "J.A.T.E"
       }),
 
       new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js'
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js"
       }),
 
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
-        name: 'Just Another Text Editor',
-        short_name: 'J.A.T.E',
-        description: 'Literally just another text editor that does exactly what you would expect it to do.',
-        background_color: '#225ca3',
-        theme_color: '#225ca3',
-        start_url: '/',
-        publicPath: '/',
-        icons: 
-        [
-          {
-            src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icons')
-          }
-        ]
+        name: "Just Another Text Editor",
+        short_name: "J.A.T.E",
+        description: "This is just another text editor",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
+        start_url: "/",
+        publicPath: "/",
+        icons:
+          [
+            {
+              src: path.resolve('src/images/logo.png'),
+              sizes: [96, 128, 192, 256, 384, 512],
+              destination: path.join('assets', 'icons'),
+            },
+          ]
       })
     ],
 
     module: {
       rules: [
-          {
-            test: /\.css$/i,
-            use: ['style-loader', 'css-loader'],
-          },
-          {
-            test: /\.m?js$/,
-            exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env'],
-                plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
-              },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
-          }
-
+          },
+        },
       ],
     },
   };
